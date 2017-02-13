@@ -10,6 +10,16 @@ import UIKit
 
 class AddViewController: UIViewController {
 
+	@IBOutlet weak var messageField: UITextField!
+	
+	@IBOutlet weak var recipientPicker: UIPickerView!
+	
+	@IBAction func sendMessage(_ sender: Any)
+	{
+		
+	}
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +30,7 @@ class AddViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
 
     /*
     // MARK: - Navigation
