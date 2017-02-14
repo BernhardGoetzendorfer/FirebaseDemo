@@ -7,17 +7,36 @@
 //
 
 import UIKit
+import Firebase
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
+{
 
+	
+	let recipientList = ["Berni", "Oliver", "Stefan", "Lukas", "Hans", "Peter", "Chris"]
+	
+	
 	@IBOutlet weak var messageField: UITextField!
 	
 	@IBOutlet weak var recipientPicker: UIPickerView!
 	
 	@IBAction func sendMessage(_ sender: Any)
 	{
+		guard let msg = messageField.text else
+		{
+			return
+		}
 		
+		let recipientRow = recipientPicker.selectedRow(inComponent: 0)
+		let recipient = recipientList[recipientRow]
+		
+		self.msg(to: recipient, withText: msg)
+		
+		let _ = navigationController?.popViewController(animated: true)
 	}
+	
+	
+	
 	
 	
     override func viewDidLoad() {
@@ -26,20 +45,93 @@ class AddViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	private func getDbReference() -> FIRDatabaseReference
+	{
+		return FIRDatabase.database().reference()
+	}
 	
+	
+	// MARK: - Textfield Delegate
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		messageField.resignFirstResponder()
+		return true
+	}
+	
+	// MARK: - Picker View
+	func numberOfComponents(in pickerView: UIPickerView) -> Int
+	{
+		return 1
+	}
+	
+	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+	{
+		return recipientList.count
+	}
+	
+	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+	{
+		return recipientList[row]
+	}
+	
+	// MARK: - Helpers
+	
+	// Send message
+	func msg(to user: String, withText msg: String)
+	{
+		let firebaseRef = getDbReference()
+		
+		let msgDict = ["recipient": user, "msg": msg]
+		
+		firebaseRef.child("Messages").childByAutoId().setValue(msgDict)
+	}
+	
+	
+	func observeMessages(withHandler handler: @escaping (_ Message: Message) -> ())
+	{
+		let firebaseRef = getDbReference()
+		
+		firebaseRef.child("Messages").queryOrderedByKey().observe(.childAdded, with:
+			{
+				(snapshot) in
+				
+				let dict = snapshot.value as! NSDictionary
+				
+				
+				guard let to = dict["recipient"] as? String,
+					let msg = dict["msg"] as? String
+					else
+				{
+					print("Error in msg")
+					return
+				}
+				
+				let msgObj = Message(to: to, msg: msg)
+				
+				handler(msgObj)
+		})
+		
+	}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -87,6 +87,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="U7b-VJ-6Hc" id="uZe-XA-EFb"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYa-yB-1U5">
                                         <rect key="frame" x="0.0" y="80.5" width="343" height="20.5"/>
@@ -96,6 +99,10 @@
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JlY-xy-kfN">
                                         <rect key="frame" x="0.0" y="116" width="343" height="216"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="U7b-VJ-6Hc" id="8wO-gt-7Q5"/>
+                                            <outlet property="delegate" destination="U7b-VJ-6Hc" id="Gei-ic-cMF"/>
+                                        </connections>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALq-bH-RyZ">
                                         <rect key="frame" x="0.0" y="347" width="343" height="30"/>
@@ -115,7 +122,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="messageField" destination="XVt-po-TnK" id="gUf-zp-lFb"/>
+                        <outlet property="messageField" destination="XVt-po-TnK" id="sJ5-pd-Pm7"/>
                         <outlet property="recipientPicker" destination="JlY-xy-kfN" id="qeL-3d-G6M"/>
                     </connections>
                 </viewController>
