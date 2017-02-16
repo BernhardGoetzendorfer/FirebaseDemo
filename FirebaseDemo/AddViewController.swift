@@ -9,10 +9,8 @@
 import UIKit
 import Firebase
 
-class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
+class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate
 {
-
-	
 	let recipientList = ["Berni", "Oliver", "Stefan", "Lukas", "Hans", "Peter", "Chris"]
 	
 	
@@ -87,31 +85,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 	}
 	
 	
-	func observeMessages(withHandler handler: @escaping (_ Message: Message) -> ())
-	{
-		let firebaseRef = getDbReference()
-		
-		firebaseRef.child("Messages").queryOrderedByKey().observe(.childAdded, with:
-			{
-				(snapshot) in
-				
-				let dict = snapshot.value as! NSDictionary
-				
-				
-				guard let to = dict["recipient"] as? String,
-					let msg = dict["msg"] as? String
-					else
-				{
-					print("Error in msg")
-					return
-				}
-				
-				let msgObj = Message(to: to, msg: msg)
-				
-				handler(msgObj)
-		})
-		
-	}
+	
 
 	
 	
