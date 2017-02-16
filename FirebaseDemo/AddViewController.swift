@@ -11,7 +11,7 @@ import Firebase
 
 class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate
 {
-	//The List we will load into the Picker
+	//The List we load into the Picker
 	let recipientList = ["Berni", "Oliver", "Stefan", "Lukas", "Hans", "Peter", "Chris"]
 	
 	//The reference to the textfield which contains the Message
@@ -61,18 +61,12 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 	func msg(to user: String, withText msg: String)
 	{
 		//Build the Connection to the Firebase Database
-		let firebaseRef = getDbReference()
+		let firebaseRef = FIRDatabase.database().reference()
 		
 		//Tell Firebase the structure
 		let msgDict = ["recipient": user, "msg": msg]
 		
 		//Tell Firebase where to save and save the Value
 		firebaseRef.child("Messages").childByAutoId().setValue(msgDict)
-	}
-	
-	//Helper for an easy connection to the Database
-	private func getDbReference() -> FIRDatabaseReference
-	{
-		return FIRDatabase.database().reference()
 	}
 }

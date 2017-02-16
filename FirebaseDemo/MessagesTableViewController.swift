@@ -15,10 +15,11 @@ class MessagesTableViewController: UITableViewController
 	var messages = [Message]()
 	
 	
-    override func viewDidLoad() {
+    override func viewDidLoad()
+	{
         super.viewDidLoad()
 
-		//Needed to load the Data with observerMessages and put it into the TableViewController
+		//Needed to load the Data with observerMessages and put it into our Array: messages and later into the TableViewController
 		observeMessages
 		{
 				(message) in

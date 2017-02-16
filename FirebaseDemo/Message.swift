@@ -13,7 +13,8 @@ class Message
 	let to: String
 	let msg: String
 	
-	init(to: String, msg: String) {
+	init(to: String, msg: String)
+	{
 		self.to = to
 		self.msg = msg
 	}
