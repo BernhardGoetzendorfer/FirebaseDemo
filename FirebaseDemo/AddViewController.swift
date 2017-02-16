@@ -33,27 +33,10 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 		let _ = navigationController?.popViewController(animated: true)
 	}
 	
-	
-	
-	
-	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
 
 	private func getDbReference() -> FIRDatabaseReference
 	{
 		return FIRDatabase.database().reference()
-	}
-	
-	
-	// MARK: - Textfield Delegate
-	
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		messageField.resignFirstResponder()
-		return true
 	}
 	
 	// MARK: - Picker View

@@ -17,7 +17,7 @@ class MessagesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		
+		//Needed to load the Data and put it into the TableViewController
 		observeMessages
 		{
 				(message) in
@@ -25,11 +25,7 @@ class MessagesTableViewController: UITableViewController {
 				self.messages.insert(message, at: 0)
 				self.tableView.reloadData()
 		}
-		
-		
     }
-
-	
 
     // MARK: - Table view data source
 
@@ -75,8 +71,5 @@ class MessagesTableViewController: UITableViewController {
 				
 				handler(msgObj)
 		})
-		
 	}
-	
-	
 }
