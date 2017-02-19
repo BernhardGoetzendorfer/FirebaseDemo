@@ -1,5 +1,5 @@
 //
-//  MessagesTableViewController.swift
+//  MessageTableViewController.swift
 //  FirebaseDemo
 //
 //  Created by Bernhard Goetzendorfer on 13/02/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MessagesTableViewController: UITableViewController
+class MessageTableViewController: UITableViewController
 {
 	//Variable which holds our Messages
 	var messages = [Message]()
