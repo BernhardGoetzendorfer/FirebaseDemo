@@ -12,7 +12,7 @@
 		C334C5F81E51B3B900E22811 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C334C5F71E51B3B900E22811 /* Assets.xcassets */; };
 		C334C5FB1E51B3B900E22811 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C334C5F91E51B3B900E22811 /* LaunchScreen.storyboard */; };
 		C334C6081E51B72B00E22811 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C334C6071E51B72B00E22811 /* GoogleService-Info.plist */; };
-		C334C60A1E51DD2300E22811 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334C6091E51DD2300E22811 /* MessagesTableViewController.swift */; };
+		C334C60A1E51DD2300E22811 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334C6091E51DD2300E22811 /* MessageTableViewController.swift */; };
 		C334C60C1E51DD7E00E22811 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334C60B1E51DD7E00E22811 /* AddViewController.swift */; };
 		C334C60E1E5241E700E22811 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334C60D1E5241E700E22811 /* Message.swift */; };
 		FC1BF20665F1C35DBB3F9D87 /* Pods_FirebaseDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2917553A22B202987CD6E25F /* Pods_FirebaseDemo.framework */; };
@@ -28,7 +28,7 @@
 		C334C5FA1E51B3B900E22811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C334C5FC1E51B3B900E22811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C334C6071E51B72B00E22811 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C334C6091E51DD2300E22811 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
+		C334C6091E51DD2300E22811 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		C334C60B1E51DD7E00E22811 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		C334C60D1E5241E700E22811 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D8DC7A9DCF4E1FF0E13B8B5A /* Pods-FirebaseDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseDemo/Pods-FirebaseDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		C334C6061E51B47700E22811 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C334C6091E51DD2300E22811 /* MessagesTableViewController.swift */,
+				C334C6091E51DD2300E22811 /* MessageTableViewController.swift */,
 				C334C60B1E51DD7E00E22811 /* AddViewController.swift */,
 			);
 			name = "View Controller";
@@ -246,7 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C334C60A1E51DD2300E22811 /* MessagesTableViewController.swift in Sources */,
+				C334C60A1E51DD2300E22811 /* MessageTableViewController.swift in Sources */,
 				C334C60E1E5241E700E22811 /* Message.swift in Sources */,
 				C334C5F11E51B3B900E22811 /* AppDelegate.swift in Sources */,
 				C334C60C1E51DD7E00E22811 /* AddViewController.swift in Sources */,
