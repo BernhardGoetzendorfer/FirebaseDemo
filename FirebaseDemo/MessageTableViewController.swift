@@ -44,8 +44,8 @@ class MessageTableViewController: UITableViewController
 		
 		let msg = messages[indexPath.row]
 		
-		cell.textLabel?.text = msg.getMsg()
-		cell.detailTextLabel?.text = msg.getTo()
+		cell.textLabel?.text = msg.recipient
+		cell.detailTextLabel?.text = msg.text
 		
 		return cell
     }
@@ -60,15 +60,15 @@ class MessageTableViewController: UITableViewController
 				
 				let dict = snapshot.value as! NSDictionary
 				
-				guard let to = dict["recipient"] as? String,
-					let msg = dict["msg"] as? String
+				guard let recipient = dict["recipient"] as? String,
+					let text = dict["msg"] as? String
 					else
 				{
 					print("Error in msg")
 					return
 				}
 				
-				let msgObj = Message(to: to, msg: msg)
+				let msgObj = Message(recipient: recipient, text: text)
 				
 				handler(msgObj)
 		})

@@ -10,22 +10,12 @@ import Foundation
 
 class Message
 {
-	let to: String
-	let msg: String
+	let recipient: String
+	let text: String
 	
-	init(to: String, msg: String)
+	init(recipient: String, text: String)
 	{
-		self.to = to
-		self.msg = msg
-	}
-	
-	func getTo() -> String
-	{
-		return to
-	}
-	
-	func getMsg() -> String
-	{
-		return msg
+		self.recipient = recipient
+		self.text = text
 	}
 }
